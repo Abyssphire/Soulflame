@@ -24,4 +24,18 @@ public class PlayerMoviment : MonoBehaviour
             transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
        }
     }
+    //tag do player para interagir com o NPC
+    [SerializeField] private string playerTag = "Player";
+    // Click do mouse para interagir com o NPC
+    private void OnMouseDown()
+    {
+       if (Input.GetMouseButtonDown(0))
+       {
+            NpcInterativo npc = GetComponent<NpcInterativo>();
+            if (npc != null)
+            {
+                npc.Interact();
+            }
+       }
+    }
 }
